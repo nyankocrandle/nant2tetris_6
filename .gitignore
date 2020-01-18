@@ -1,3 +1,3 @@
-.hack
-.exe
+*.hack
+*.exe
 .vscode
