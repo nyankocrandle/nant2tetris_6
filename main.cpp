@@ -1,3 +1,4 @@
+#include <bitset>
 #include <fstream>
 #include <iostream>
 #include "Code.h"
@@ -26,13 +27,16 @@ int main() {
 
   Parser p(&ifp);
   Code code;
+  std::string symbol_str;
   while (p.hasMoreCommands()) {
     p.advance();
     ctype = p.commandType();
     switch (ctype) {
       case A_COMMAND:
-        // ofp << '0';
-        // ofp << p.symbol();
+        symbol_str = p.symbol();
+        int symbol_int;
+        symbol_int = atoi(symbol_str.c_str());
+        ofp << std::bitset<16>(symbol_int);
         break;
       case C_COMMAND:
         ofp << "111";
