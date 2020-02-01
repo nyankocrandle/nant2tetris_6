@@ -1,7 +1,7 @@
+#include "Parser.h"
 #include <fstream>
 #include <iostream>
 #include "Pcommand.h"
-#include "Parser.h"
 
 Parser::Parser(std::ifstream* fp) {
   firstread = true;
@@ -27,7 +27,9 @@ bool Parser::hasMoreCommands() {
   return false;
 }
 
-void Parser::advance() { command = nextcommand; }
+void Parser::advance() {
+  command = nextcommand;
+}
 
 CommandType Parser::commandType() {
   char initial = command[0];
